@@ -1,3 +1,4 @@
+
 # 📘 Edukita Student Assignment API
 
 This is a TypeScript-based REST API for managing student assignments, built with Express.js and TypeORM.  
@@ -113,6 +114,41 @@ Make sure to provide your `GEMINI_API_KEY` in `.env`.
 
 ---
 
+---
+
+## 🧠 NLP Analyze Feature (language_tool_python)
+
+This project includes a daily batch process using Apache Airflow that:
+- Analyzes English writing submissions from the student assignment
+- Detects frequent grammar and writing issues using `language_tool_python`
+- Generates a CSV report of common mistakes
+- Sends the report via email to English teachers
+
+
+---
+
+## 📡 API Routes
+
+| Method | Endpoint               | Description                             | Role      |
+|--------|------------------------|-----------------------------------------|-----------|
+| POST   | `/users`               | Create a new user (student/teacher)     | Public    |
+| POST   | `/assignments`         | Submit an assignment                    | Student   |
+| GET    | `/assignments`         | Get submitted assignments (by subject)  | Teacher   |
+| POST   | `/grades`              | Grade an assignment                     | Teacher   |
+| GET    | `/grades/:studentId`   | Get all graded assignments for a student| Student   |
+
+---
+
+### 🔐 Header Authentication
+
+All role-restricted endpoints require the following headers.:
+
+```http
+x-user-id: <user_id>
+```
+
+---
+
 ## 📝 Example Request
 
 ### Submit Assignment (Student)
@@ -134,6 +170,3 @@ Body:
 
 Made with ❤️ by sabiq  
 📧 sabiqandazhar@gmail.com
-```
-
----
