@@ -1,4 +1,3 @@
-```markdown
 # 📘 Edukita Student Assignment API
 
 This is a TypeScript-based REST API for managing student assignments, built with Express.js and TypeORM.  
